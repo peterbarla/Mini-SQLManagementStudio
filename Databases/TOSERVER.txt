@@ -1,0 +1,13 @@
+db1
+diakok
+JOINQUERY
+*
+diakok.csoportID=csoportok.csoportID#csoportok.orszagID=orszagok.orszagID
+
+
+diakok#csoportok#orszagok
+varosok/varosID#orszagok/orszagID/varosID#csoportok/csoportID/orszagID#diakok/diakID/diakNev/csoportID/postcode/jegy#
+diakok.csoportID
+count(diakok.diakID)>50000
+count(diakok.diakID),sum(diakok.postcode),avg(diakok.postcode)
+...

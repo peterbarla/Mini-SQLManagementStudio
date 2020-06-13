@@ -1,0 +1,1 @@
+diakok.csoportID=521: count(diakok.diakID)=50296,,sum(diakok.postcode)=251008084,,avg(diakok.postcode)=4990.617,,

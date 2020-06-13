@@ -1,0 +1,120 @@
+<DataBase dataBaseName="db1">
+<Tables>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<Table tableName="varosok">
+<Structure>
+<Attribute attributeName="varosID" type="int" specs="1000"/>
+<primaryKey>
+<pkAttribute>varosID</pkAttribute>
+</primaryKey>
+<foreignKeys>
+</foreignKeys>
+<IndexFiles>
+</IndexFiles>
+
+</Structure>
+</Table>
+
+<Table tableName="orszagok">
+<Structure>
+<Attribute attributeName="orszagID" type="int" specs="1000"/>
+<Attribute attributeName="varosID" type="int" specs="0100"/>
+<primaryKey>
+<pkAttribute>orszagID</pkAttribute>
+</primaryKey>
+<foreignKeys>
+<foreignKey>
+<fkAttribute>varosID</fkAttribute>
+<references>
+<refTable>varosok</refTable>
+<refAttribute>varosID</refAttribute>
+</references>
+</foreignKey>
+</foreignKeys>
+<IndexFiles>
+</IndexFiles>
+
+</Structure>
+</Table>
+
+
+
+<Table tableName="csoportok">
+<Structure>
+<Attribute attributeName="csoportID" type="int" specs="1000"/>
+<Attribute attributeName="orszagID" type="int" specs="0100"/>
+<primaryKey>
+<pkAttribute>csoportID</pkAttribute>
+</primaryKey>
+<foreignKeys>
+<foreignKey>
+<fkAttribute>orszagID</fkAttribute>
+<references>
+<refTable>orszagok</refTable>
+<refAttribute>orszagID</refAttribute>
+</references>
+</foreignKey>
+</foreignKeys>
+<IndexFiles>
+</IndexFiles>
+
+</Structure>
+</Table>
+
+
+
+
+<Table tableName="diakok">
+<Structure>
+<Attribute attributeName="diakID" type="int" specs="1000"/>
+<Attribute attributeName="diakNev" type="varchar" specs="0000"/>
+<Attribute attributeName="csoportID" type="int" specs="0100"/>
+<Attribute attributeName="postcode" type="int" specs="0001"/>
+<Attribute attributeName="jegy" type="int" specs="0010"/>
+<primaryKey>
+<pkAttribute>diakID</pkAttribute>
+</primaryKey>
+<foreignKeys>
+<foreignKey>
+<fkAttribute>csoportID</fkAttribute>
+<references>
+<refTable>csoportok</refTable>
+<refAttribute>csoportID</refAttribute>
+</references>
+</foreignKey>
+</foreignKeys>
+<IndexFiles>
+<IndexFile indexName="db1diakokjegy.ind" keyLength="3" isUnique = "1" indexType="BTree">
+<IndexAttributes>
+<IAttribute>jegy</IAttribute>
+</IndexAttributes>
+</IndexFile>
+<IndexFile indexName="db1diakokpostcode.ind" keyLength="3" isUnique = "0" indexType="BTree">
+<IndexAttributes>
+<IAttribute>postcode</IAttribute>
+</IndexAttributes>
+</IndexFile>
+</IndexFiles>
+
+</Structure>
+</Table>
+
+
+
+</Tables>
+</Databases>
